@@ -1,9 +1,17 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
 import datetime
+import os
 
+def clear_screen():
+    # Clear the terminal screen depending on the operating system.
+    if os.name == 'nt':  # Windows
+        os.system('cls')
+    else:  # macOS/Linux
+        os.system('clear')
 
 while True:
+    clear_screen()
     # Zadej tikry porovnávaných akcií
     stocks = input("zadej tikry (např.....ASML, LRCX, KLAC):\n").split(", ")
 
@@ -36,16 +44,9 @@ while True:
     # Vykresli graf
     plt.figure(figsize=(12, 6))
     for stock in stocks:
-        plt.plot(data.index, normalized_data[stock], label=stock)
+        label = f"{stock} ({percent_changes[stock]:.2f}%)"
+        plt.plot(data.index, normalized_data[stock], label=label)
 
-    for stock in stocks:
-        plt.text(
-            normalized_data.index[-1],  # x pozice: poslední datum v datech
-            normalized_data[stock].iloc[-1],  # y pozice: poslední hodnota pro daný stock
-            f'{percent_changes[stock]:.2f}%',  # Text popisku s procentuální změnou
-            fontsize=10,
-            ha='left'  # Umístí text mírně vpravo
-        )
     plt.title("Procentuální nárust/pokles ceny za dané období")
     plt.xlabel('Datum')
     plt.ylabel('Pohyb ceny v %')
@@ -53,9 +54,9 @@ while True:
     plt.grid(True)
     plt.show()
 
-    print("\n")
-    end = input("Pro ukončení zadej: q   ")
+    end = input("\nPro ukončení zadej: q\nPro pokračování: Enter\n")
     if end == "q":
         break
+
 
 
