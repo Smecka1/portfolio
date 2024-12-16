@@ -1,5 +1,6 @@
 import random
 import matplotlib.pyplot as plt
+import statistics
 
 # List of month names in Czech
 months = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen",
@@ -30,7 +31,7 @@ for temperatures in month_temperatures.values():
 # Calculate the average temperature for each month
 month_average_temp = {}
 for month, temperatures in month_temperatures.items():
-    month_average_temp[month] = round(sum(temperatures) / len(temperatures), 1)
+    month_average_temp[month] = round(statistics.mean(temperatures),1)
 
 # Font settings for graph titles and labels
 font1 = {'family': 'serif', 'color': 'blue', 'size': 20}
@@ -38,15 +39,17 @@ font2 = {'family': 'serif', 'color': 'darkred', 'size': 15}
 
 # Function to plot yearly temperature trend
 def year_graph():
+    plt.figure("Roční vývoj teploty")
     plt.plot(all_months_temperatures)
     plt.grid(axis="y", linestyle='--', linewidth=0.5)
     plt.title("Roční vývoj teploty", fontdict=font1)
     plt.xlabel("dny", fontdict=font2)
     plt.ylabel("teplota °C", fontdict=font2)
-    plt.show()
+    plt.show(block=False)
 
 # Function to plot individual monthly temperature trends in separate subplots
 def year_graph_separate():
+    plt.figure("Vývoj průměrné denní teploty")
     for position, month in enumerate(months):
         plt.subplot(3, 4, position + 1)  # Create a subplot for each month
         plt.plot(month_temperatures[month])
