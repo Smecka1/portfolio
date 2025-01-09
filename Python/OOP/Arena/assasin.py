@@ -16,14 +16,6 @@ class Assassin(Fighter):
         super().__init__(name, power, hp)
         self.instinct = 0
 
-    def defense(self, hurt):
-        time.sleep(2)
-        if self.hp - hurt <= 0:
-            self.hp -= hurt
-            return f"{self.name} DIED!\n"
-        self.hp -= hurt
-        return f"{self.name} HP = {self.hp}\n"
-
     def action(self, oponent):
         attack_type = random.randint(0, 2)
         time.sleep(2)

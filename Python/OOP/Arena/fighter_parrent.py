@@ -1,7 +1,8 @@
+from abc import ABC, abstractmethod
 import random
 import time
 
-class Fighter:
+class Fighter(ABC):
 
     def __init__(self, name, power, hp):
         self.name = name
@@ -17,6 +18,7 @@ class Fighter:
         self.hp -= hurt
         return f"{self.name} HP = {self.hp}\n"
 
+    @abstractmethod
     def action(self, oponent):
         attack_type = random.randint(0, 2)
         time.sleep(2)
