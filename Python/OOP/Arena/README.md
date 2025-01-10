@@ -16,4 +16,4 @@ Abilities: Each character possesses unique abilities that can be used during com
 Getting Started:
 
 Save the Files: Save all Python files (warrior.py, mage.py, assassin.py, arena.py) in the same directory.
-Run the Main Script: Execute the Python script that contains the code to create characters and the arena (run_arena_app.py).
+Run the Main Script - run_arena_app.py
