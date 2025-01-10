@@ -40,7 +40,6 @@ class FiveInRow:
                 # Ensure the input is within the board's range
                 print("CHYBNÉ ZADÁNÍ! (Zadej souřadnice uvnitř hracího pole)")
                 y, x = False, False
-                continue
             elif self.field[y][x] != ". ":
                 # Check if the selected cell is already occupied
                 print("CHYBNÉ ZADÁNÍ! (Zadal jsi obsazené pole)")
