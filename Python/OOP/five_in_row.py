@@ -11,6 +11,13 @@ class FiveInRow:
             next_row = [f"{i:>2}"] + [". " for _ in range(columns)]
             self.field.append(next_row)
 
+    def welcome_screen(self):
+        # Giving informatins about game rules
+        print(f"\n               VÍTEJ VE HŘE PIŠKVORKY")
+        print("-hrači O a X se střídají v zadávaní svých znaků do tabulky")
+        print("-první kdo dosáhne nepřerušené řady 5 svých znaků vyhrál")
+        input("-------------Zmáčkni Enter pro zahájení hry--------------")
+
     def print_field(self):
         # Print the current state of the game board
         for row in self.field:
@@ -40,7 +47,6 @@ class FiveInRow:
                 # Ensure the input is within the board's range
                 print("CHYBNÉ ZADÁNÍ! (Zadej souřadnice uvnitř hracího pole)")
                 y, x = False, False
-                continue
             elif self.field[y][x] != ". ":
                 # Check if the selected cell is already occupied
                 print("CHYBNÉ ZADÁNÍ! (Zadal jsi obsazené pole)")
@@ -112,18 +118,12 @@ class FiveInRow:
 
     def win_verification(self, row, column):
         # Verify if the current player has won the game
-        if self.row_checker(row, column) or self.column_checker(row, column) or \
-           self.diagonal_checker_left_to_right(row, column) or self.diagonal_checker_right_to_left(row, column):
-            return True
-        else:
-            return False
+        return self.row_checker(row, column) or self.column_checker(row, column) or \
+           self.diagonal_checker_left_to_right(row, column) or self.diagonal_checker_right_to_left(row, column)
 
     def run(self):
         # Main game loop
-        print(f"\n               VÍTEJ VE HŘE PIŠKVORKY")
-        print("-hrači O a X se střídají v zadávaní svých znaků do tabulky")
-        print("-první kdo dosáhne nepřerušené řady 5 svých znaků vyhrál")
-        input("-------------Zmáčkni Enter pro zahájení hry--------------")
+        self.welcome_screen()  # Display instructions
         self.print_field()  # Display the initial empty game board
         winner = False
         while not winner:
