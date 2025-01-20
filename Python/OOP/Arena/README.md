@@ -1,19 +1,24 @@
-Text-Based Fighting Game
+### **Text-Based Fighting Game**
 This Python script implements a simple text-based fighting game where various characters with unique abilities can battle against each other.
 
-Available Characters:
+### **Available Characters:*
 
-Warrior: A sturdy fighter with high health and balanced attacks.
-Mage: A spellcaster with lower health but powerful magical attacks.
-Assassin: A swift and deadly assassin with high damage output but low health.
+*Warrior: A sturdy fighter with high health and balanced attacks.
 
-Functionality:
+*Mage: A spellcaster with lower health but powerful magical attacks.
 
-Character Creation: Create instances of different character classes and customize their names.
-Arena: Pit characters against each other in an arena where they take turns attacking.
-Abilities: Each character possesses unique abilities that can be used during combat.
+*Assassin: A swift and deadly assassin with high damage output but low health.
 
-Getting Started:
+### **Functionality:*
 
-Save the Files: Save all Python files (warrior.py, mage.py, assassin.py, arena.py) in the same directory.
-Run the Main Script: Execute the Python script that contains the code to create characters and the arena (run_arena_app.py).
+*Character Creation: Create instances of different character classes and customize their names.
+
+*Arena: Pit characters against each other in an arena where they take turns attacking.
+
+*Abilities: Each character possesses unique abilities that can be used during combat.
+
+### **Getting Started:*
+
+*Save the Files: Save all Python files (warrior.py, mage.py, assassin.py, arena.py) in the same directory.
+
+*Run the Main Script - run_arena_app.py
