@@ -12,7 +12,8 @@ class Kniha:
 
     def __str__(self):
         # Prevod objektu na textovou reprezentaci
-        return f"{self.autor} - {self.nazev} | č.{self.cislo} | {self.rok} | {self.zanr}\nDostupná: {"ANO" if self.dostupnost else "NE"}"
+        return (f"{self.autor} - {self.nazev} | č.{self.cislo} | {self.rok} | {self.zanr}\nDostupná: "
+                f"{"ANO" if self.dostupnost else "NE"}")
 
 
 # Trida Ctenar predstavuje ctenare knihovny
@@ -54,14 +55,14 @@ class Knihovna:
         nalezeno = []
         for kniha in self.knihy:
             if hledany_vyraz.lower() in kniha.__str__().lower():
-                nalezeno.append(kniha.nazev)
+                nalezeno.append(str(kniha))
         return "\n".join(nalezeno)
 
     def pujc_knihu(self, ctenar_cislo, kniha_cislo):
         # Zapujci knihu ctenari, pokud je dostupna
         if self.knihy[kniha_cislo].dostupnost:
             self.ctenari[ctenar_cislo].zapujceno.append(self.knihy[kniha_cislo])
-            self.knihy[kniha_cislo].dostupnost = not self.knihy[kniha_cislo].dostupnost
+            self.knihy[kniha_cislo].dostupnost = False
             return f"Půjčeno {self.knihy[kniha_cislo].nazev}, čtenáři č.{self.ctenari[ctenar_cislo]}"
         return "Kniha je vypůjčena, operace neproběhla."
 
@@ -69,7 +70,7 @@ class Knihovna:
         # Vrati knihu od ctenare, pokud ji ma zapujcenou
         if self.knihy[kniha_cislo] in self.ctenari[ctenar_cislo].zapujceno:
             self.ctenari[ctenar_cislo].zapujceno.remove(self.knihy[kniha_cislo])
-            self.knihy[kniha_cislo].dostupnost = not self.knihy[kniha_cislo].dostupnost
+            self.knihy[kniha_cislo].dostupnost = True
             return f"Vráceno {self.knihy[kniha_cislo].nazev}, čtenářem č.{self.ctenari[ctenar_cislo]}"
         return "Čtenář nemá knihu půjčenou, operace neproběhla."
 
@@ -118,8 +119,8 @@ print("\nTEST vypsání knihy z knihovny:")
 print(knihovna.knihy[9])
 print("\nTEST vypsání čtenáře z knihovny:")
 print(knihovna.ctenari[3])
-print("\nTEST metody najdi_knihu():")
-print(knihovna.najdi_knihu("meta"))
+print("\nTEST metody najdi_knihu() na výrazu 'ma':")
+print(knihovna.najdi_knihu("ma"))
 print("\nTEST metody pujc_knihu():")
 print(knihovna.pujc_knihu(5, 5))
 print("\nTEST metody vrat_knihu():")
