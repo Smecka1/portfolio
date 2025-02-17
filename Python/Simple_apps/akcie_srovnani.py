@@ -13,7 +13,7 @@ def clear_screen():
 while True:
     clear_screen()
     # Zadej tikry porovnávaných akcií
-    stocks = input("zadej tikry (např.....ASML, LRCX, KLAC):\n").split(", ")
+    stocks = input("zadej tikry (např.....ASML, LRCX, KLAC):\n").upper().split(", ")
 
     # Načti historická data do současnosti (zadej od kerého data)
     start_date = input("Zadej datum od ve formátu: 2020-01-01:\n")
