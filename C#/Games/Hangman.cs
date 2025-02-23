@@ -212,7 +212,8 @@ namespace Games
                     end = EndOfGame(); // Check if the game should end
                     }
                 NewScreen();
-                Console.WriteLine(wrongGuess == 6 ? $" {guessedWord}\n\n You Loose" : "\n You WIN"); // Display the result: Win or Lose
+                string result = wrongGuess == 6 ? $" {guessedWord}\n\n You Loose" : "\n You WIN";
+                Console.WriteLine(result); // Display the result: Win or Lose
                 Console.WriteLine("\nPlay again?");
                 run = YesOrNo(); // Ask if the player wants to play again
                 }

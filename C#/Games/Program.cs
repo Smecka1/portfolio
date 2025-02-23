@@ -8,7 +8,8 @@
         {
             Navigation navigation = new Navigation(); // Creates an instance of the Navigation class
             navigation.RunApp(); // Starts the game selection menu
-            
+
+
             Console.ReadKey(); // Waits for user input before closing the console
         }
     }

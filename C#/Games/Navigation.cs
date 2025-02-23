@@ -23,7 +23,9 @@ namespace Games
             Console.WriteLine("::                                      ::");
             Console.WriteLine("::  3) Rock, Paper, Scissors            ::");
             Console.WriteLine("::                                      ::");
-            Console.WriteLine("::  4) Quit                             ::");
+            Console.WriteLine("::  4) Tower of Hanoi                   ::");
+            Console.WriteLine("::                                      ::");
+            Console.WriteLine("::  5) Quit                             ::");
             Console.WriteLine("::                                      ::");
             Console.WriteLine("::::::::::::::::::::::::::::::::::::::::::\n");
             }
@@ -40,6 +42,7 @@ namespace Games
             Hangman hangman = new Hangman();
             GuessNumber guessNumber = new GuessNumber();
             RockPaperScissors rockPaperScissors = new RockPaperScissors();
+            TowerOfHanoi towerOfHanoi = new TowerOfHanoi();
 
             switch (chosenGame)
                 {
@@ -53,6 +56,9 @@ namespace Games
                     rockPaperScissors.RunApp(); // Starts Rock, Paper, Scissors game
                     return false;
                 case 4:
+                    towerOfHanoi.RunApp(); // Starts Tower of Hanoi game
+                    return false;
+                case 5:
                     return QuitApp(); // Exits the application
                 default:
                     Console.WriteLine("Invalid input! Please enter a number between 1 and 4.");
@@ -67,7 +73,7 @@ namespace Games
             while (!end)
                 {
                 Menu(); // Displays the menu
-                int whatToDo = ChooseNumber(1, 4); // Gets user input for game selection
+                int whatToDo = ChooseNumber(1, 5); // Gets user input for game selection
                 end = StartGame(whatToDo); // Starts the selected game or Quit app
                 }
             ShowEndScreen(); // Displays the final screen before exiting
